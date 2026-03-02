@@ -17,7 +17,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { toast } = useToast();
-  const [email, setEmail] = useState("admin@youthblossom.org");
+  const [email, setEmail] = useState("example@email.com");
   const [password, setPassword] = useState("admin123");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
