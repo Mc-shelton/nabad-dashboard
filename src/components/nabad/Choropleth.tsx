@@ -35,8 +35,8 @@ const circleLayer: Layer = {
       1500,
       22
     ],
-    "circle-stroke-color": "#0f172a",
-    "circle-stroke-width": 1.2,
+    "circle-stroke-color": "#065f46",
+    "circle-stroke-width": 1,
     "circle-opacity": 0.9
   }
 };
@@ -80,8 +80,16 @@ const heatLayer: Layer = {
   minzoom: 8,
   maxzoom: 16,
   paint: {
-    "heatmap-weight": ["interpolate", ["linear"], ["get", "score"], 40, 0.2, 80, 1],
-    "heatmap-intensity": ["interpolate", ["linear"], ["zoom"], 9, 0.7, 14, 1.4],
+    "heatmap-weight": [
+      "interpolate",
+      ["linear"],
+      ["get", "households"],
+      100,
+      0.2,
+      1500,
+      1.0
+    ],
+    "heatmap-intensity": ["interpolate", ["linear"], ["zoom"], 9, 0.5, 14, 1.2],
     "heatmap-color": [
       "interpolate",
       ["linear"],
@@ -97,19 +105,9 @@ const heatLayer: Layer = {
       1,
       "rgba(239,68,68,0.9)"
     ],
-    "heatmap-radius": ["interpolate", ["linear"], ["zoom"], 9, 22, 12, 32, 14, 48],
-    "heatmap-opacity": 0.85
+    "heatmap-radius": ["interpolate", ["linear"], ["zoom"], 9, 18, 12, 28, 14, 44],
+    "heatmap-opacity": 0.78
   }
-};
-
-const debugLayer: Layer = {
-  id: "cvi-debug",
-  type: "circle",
-  paint: {
-    "circle-radius": 6,
-    "circle-color": "#ef4444",
-    "circle-opacity": 0.9,
-  },
 };
 
 type Props = {
@@ -172,7 +170,6 @@ export const Choropleth = ({ sites = siteProfiles, onSelect, selected }: Props) 
               <Layer {...heatLayer} />
               <Layer {...glowLayer} />
               <Layer {...circleLayer} />
-              <Layer {...debugLayer} />
             </Source>
             {normalized.map((s) => {
               const score = (s as any)._score?.composite ?? computeCompositeScore(s as any).composite;
@@ -195,9 +192,9 @@ export const Choropleth = ({ sites = siteProfiles, onSelect, selected }: Props) 
                       height: 14,
                       borderRadius: "50%",
                       background: color,
-                      boxShadow: "0 0 12px 4px rgba(0,0,0,0.25)",
-                      border: "2px solid #0f172a",
-                      opacity: 0.95,
+                      boxShadow: "0 0 10px 4px rgba(4,117,0,0.25)",
+                      border: "2px solid #065f46",
+                      opacity: 0.92,
                     }}
                     onMouseEnter={() =>
                       setHover({

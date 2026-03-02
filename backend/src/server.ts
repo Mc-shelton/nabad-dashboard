@@ -9,7 +9,8 @@ import { ensureSeedUser } from './repositories/usersRepository';
 import { ensureSeedAlerts } from './services/alertsService';
 import { triggerProcessing, ensureSeedGubadleySites } from './services/sitesService';
 
-const port = Number(process.env.PORT ?? 4000);
+const defaultPort = process.env.NODE_ENV === 'production' ? 3126 : 4000;
+const port = Number(process.env.PORT ?? defaultPort);
 const host = process.env.HOST ?? '0.0.0.0';
 
 const keyPath = process.env.SSL_KEY_PATH ?? path.resolve(process.cwd(), 'ssl/key.pem');

@@ -82,7 +82,7 @@ A backend scaffold is available under `backend/` and mirrors the frontend's yout
 npm run api:dev
 ```
 
-Server starts at `http://localhost:4000`.
+Server starts at `http://localhost:3126`.
 
 ### Auth
 
