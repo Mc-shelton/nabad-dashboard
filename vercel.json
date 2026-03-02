@@ -1,0 +1,7 @@
+{
+  // Ensure client-side routes (e.g., /login, /targeting) are served by the SPA
+  // instead of returning a 404 on hard refreshes.
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
