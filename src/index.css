@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Youth Ministry Dashboard Design System
+   Warm, welcoming church-friendly palette with modern aesthetics */
+
+@layer base {
+  :root {
+    /* Nabad palette — anchored to logo green */
+    --primary: 86 64% 44%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Warm sand accent for calls-to-action */
+    --accent: 32 84% 52%;
+    --accent-foreground: 28 60% 14%;
+    
+    /* Soft off-white background to match logo negative space */
+    --background: 90 20% 97%;
+    --foreground: 210 18% 16%;
+    
+    /* Cards with gentle elevation */
+    --card: 0 0% 100%;
+    --card-foreground: 210 18% 16%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 18% 16%;
+    
+    /* Secondary - muted sage */
+    --secondary: 90 16% 92%;
+    --secondary-foreground: 150 10% 25%;
+    
+    /* Muted states */
+    --muted: 90 12% 90%;
+    --muted-foreground: 150 8% 42%;
+    
+    /* Status colors */
+    --destructive: 0 65% 52%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 130 45% 36%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 28 60% 14%;
+    
+    /* Borders and inputs */
+    --border: 90 12% 86%;
+    --input: 90 12% 86%;
+    --ring: 86 64% 44%;
+    
+    --radius: 0.625rem;
+    
+    /* Sidebar tuned to logo */
+    --sidebar-background: 90 16% 95%;
+    --sidebar-foreground: 150 10% 20%;
+    --sidebar-primary: 86 64% 44%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 32 84% 52%;
+    --sidebar-accent-foreground: 28 60% 14%;
+    --sidebar-border: 90 12% 88%;
+    --sidebar-ring: 86 64% 44%;
+    
+    /* Chart colors */
+    --chart-1: 86 64% 44%;
+    --chart-2: 32 84% 52%;
+    --chart-3: 168 52% 44%;
+    --chart-4: 275 45% 52%;
+    --chart-5: 200 60% 46%;
+    
+    /* Engagement status */
+    --engaged: 130 45% 36%;
+    --at-risk: 38 92% 50%;
+    --disengaged: 0 65% 55%;
+  }
+
+  .dark {
+    --primary: 86 64% 48%;
+    --primary-foreground: 210 18% 12%;
+    
+    --accent: 32 84% 56%;
+    --accent-foreground: 24 50% 12%;
+    
+    --background: 210 20% 9%;
+    --foreground: 120 12% 92%;
+    
+    --card: 210 18% 12%;
+    --card-foreground: 120 12% 92%;
+    
+    --popover: 210 18% 12%;
+    --popover-foreground: 120 12% 92%;
+    
+    --secondary: 210 14% 18%;
+    --secondary-foreground: 120 10% 88%;
+    
+    --muted: 210 14% 18%;
+    --muted-foreground: 120 10% 68%;
+    
+    --destructive: 0 65% 48%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 130 45% 42%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 52%;
+    --warning-foreground: 0 0% 100%;
+    
+    --border: 210 14% 22%;
+    --input: 210 14% 22%;
+    --ring: 86 64% 48%;
+    
+    --sidebar-background: 210 18% 11%;
+    --sidebar-foreground: 120 12% 90%;
+    --sidebar-primary: 86 64% 48%;
+    --sidebar-primary-foreground: 210 18% 12%;
+    --sidebar-accent: 32 84% 56%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 210 14% 20%;
+    --sidebar-ring: 86 64% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .metric-card {
+    @apply bg-card rounded-xl border border-border p-6 shadow-sm transition-all duration-200 hover:shadow-md hover:border-primary/20;
+  }
+  
+  .stat-value {
+    @apply text-3xl font-bold text-foreground tracking-tight;
+  }
+  
+  .stat-label {
+    @apply text-sm font-medium text-muted-foreground;
+  }
+  
+  .status-engaged {
+    @apply bg-success/10 text-success border-success/20;
+  }
+  
+  .status-at-risk {
+    @apply bg-warning/10 text-warning border-warning/20;
+  }
+  
+  .status-disengaged {
+    @apply bg-destructive/10 text-destructive border-destructive/20;
+  }
+  
+  .chart-container {
+    @apply bg-card rounded-xl border border-border p-6;
+  }
+  
+  .page-header {
+    @apply mb-8;
+  }
+  
+  .page-title {
+    @apply text-2xl font-bold text-foreground;
+  }
+  
+  .page-description {
+    @apply text-muted-foreground mt-1;
+  }
+}
