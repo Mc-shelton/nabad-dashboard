@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       NODE_ENV: production
-      # Provide your external connection string when running:
+      # Provide your e saxternal connection string when running:
       #   DATABASE_URL=postgresql://user:pass@host:port/dbname?sslmode=require
       DATABASE_URL: ${DATABASE_URL}
       PORT: 3126
