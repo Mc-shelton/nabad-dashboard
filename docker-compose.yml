@@ -5,11 +5,10 @@ services:
       dockerfile: Dockerfile
     image: shellton/nabad:latest
     restart: always
+    env_file:
+      - ./.env
     environment:
       NODE_ENV: production
-      # Provide your e saxternal connection string when running:
-      #   DATABASE_URL=postgresql://user:pass@host:port/dbname?sslmode=require
-      DATABASE_URL: ${DATABASE_URL}
       PORT: 3126
     ports:
       - "3126:3126"

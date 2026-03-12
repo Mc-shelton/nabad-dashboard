@@ -16,5 +16,5 @@ RUN npx prisma generate
 
 ENV PORT=3126
 
-CMD ["sh", "-c", "npx prisma db push && npx tsx src/server.ts"]
+CMD ["sh", "-c", "npx tsx src/server.ts"]
 
